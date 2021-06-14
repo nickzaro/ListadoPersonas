@@ -3,10 +3,12 @@ package com.nick.backend.services;
 import com.nick.backend.entities.Persona;
 import com.nick.backend.exceptions.PersonaNotFoundException;
 import com.nick.backend.repositories.PersonaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PersonaServiceImpl implements PersonaService {
 
     private PersonaRepository personaRepository;
