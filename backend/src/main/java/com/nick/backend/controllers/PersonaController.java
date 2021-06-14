@@ -17,7 +17,7 @@ public class PersonaController {
     @Autowired
     PersonaService personaService;
 
-    @GetMapping("/personas")
+    @GetMapping("/personas/")
     public List<Persona> findAll(){
         return  personaService.findAll();
     }
@@ -33,7 +33,7 @@ public class PersonaController {
         return persona;
     }
 
-    @PostMapping("/personas")
+    @PostMapping("/personas/")
     @ResponseStatus(HttpStatus.CREATED)
     public Persona save(@RequestBody Persona persona){
         personaService.save(persona);
