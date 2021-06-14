@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins ={"http://localhost:4200"}) // para permitir las conexiones del frontend angular
 @RestController
 @RequestMapping("/api")
 public class PersonaController {
