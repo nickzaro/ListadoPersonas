@@ -26,7 +26,7 @@ export class DataService {
         (response) =>{
           console.log("resultado de modificar persona: "+ response);
         },
-        (error => console.log("error en modificar persona:" + error))
+        (error) => console.log("error en modificar persona:" + error)
       );
   }
 

@@ -16,7 +16,7 @@ export class PersonaService {
 
   agregarPersona(persona: Persona){
     console.log("persona a agregar: "+persona.nombre);
-    // @ts-ignore
+    
     this.dataService.agregarPersona(persona)
       .subscribe(
         (persona:Persona) =>{
