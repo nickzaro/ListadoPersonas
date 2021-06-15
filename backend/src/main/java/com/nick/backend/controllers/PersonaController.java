@@ -23,8 +23,8 @@ public class PersonaController {
         return  personaService.findAll();
     }
 
-    @GetMapping("/personas/{id}")
-    public Persona findById(@PathVariable(value = "id") Long id){
+    @GetMapping("/personas/{idPersona}")
+    public Persona findById(@PathVariable(value = "idPersona") Long id){
         Persona persona= new Persona();
         try {
             persona= personaService.findById(id);
@@ -41,9 +41,9 @@ public class PersonaController {
         return persona;
     }
 
-    @PutMapping("/personas/{id}")
+    @PutMapping("/personas/{idPersona}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Persona update(@RequestBody Persona persona, @PathVariable Long id){
+    public Persona update(@RequestBody Persona persona, @PathVariable(value = "idPersona") Long id){
         Persona personaRecuperada = new Persona();
         try {
             personaRecuperada = personaService.findById(id);
@@ -55,9 +55,9 @@ public class PersonaController {
         return personaRecuperada;
     }
 
-    @DeleteMapping("/personas/{id}")
+    @DeleteMapping("/personas/{idPersona}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable(value = "idPersona") Long id){
         Persona personaRecuperada = new Persona();
         try {
             personaRecuperada = personaService.findById(id);

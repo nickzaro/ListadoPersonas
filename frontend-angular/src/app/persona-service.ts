@@ -41,6 +41,10 @@ export class PersonaService {
   modificarPersona(id: number,persona: Persona){
     console.log("persona a modificar: "+ persona.idPersona);
     this.dataService.modificarPersona(id,persona);
+    const personaMod:Persona = this.encontrarPersona(id);
+    personaMod.nombre = persona.nombre; // modifico el nombre en la vista
+
+
   }
 
   eliminarPersona(id:number){

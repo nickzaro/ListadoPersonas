@@ -15,18 +15,37 @@ export class FormularioComponent implements OnInit {
   nombreInput!: string;
 
   constructor(private personaService: PersonaService,
-              private router: Router,
-              private route: ActivatedRoute
-    ) { }
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.idPersona = this.route.snapshot.params.idPersona;
+    console.log('recuperamos el parametro idPersona:' + this.idPersona);
+    if (this.idPersona != null) {
+      const persona = this.personaService.encontrarPersona(this.idPersona);
+      if (persona != null) {
+        this.nombreInput = persona.nombre;
+
+      }
+    }
 
   }
 
-  onGuardarPersona(){
-    const personaAGuardar = new Persona(this.idPersona,this.nombreInput);
-    this.personaService.agregarPersona(personaAGuardar);
+  onGuardarPersona() {
+    const personaAGuardar = new Persona(this.idPersona, this.nombreInput);
+    if (this.idPersona != null) {
+      this.personaService.modificarPersona(this.idPersona, personaAGuardar);
+    } else {
+      this.personaService.agregarPersona(personaAGuardar);
+    }
+
     this.router.navigate(['personas']);
   }
 
+  onEliminarPersona(){
+    this.idPersona = this.route.snapshot.params.idPersona;
+    this.personaService.eliminarPersona(this.idPersona);
+    this.router.navigate(['personas']);
+  }
 }
