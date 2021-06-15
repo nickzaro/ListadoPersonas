@@ -16,9 +16,11 @@ export class PersonaService {
 
   agregarPersona(persona: Persona){
     console.log("persona a agregar: "+persona.nombre);
+    // @ts-ignore
     this.dataService.agregarPersona(persona)
       .subscribe(
-        (persona: Persona) =>{
+        (persona:Persona) =>{
+
           // Recuperamos el objeto persona con el id persona
           console.log("Se agrega al arreglo la persona recien insetada suscriber:"+persona.idPersona);
           this.personas.push(persona);
@@ -27,6 +29,7 @@ export class PersonaService {
   }
 
   encontrarPersona(id: number){
+    // @ts-ignore
     const persona: Persona = this.personas.find(persona => persona.idPersona == id);
     console.log("persona encontrada: "+ persona.idPersona + " " + persona.nombre);
     return persona;

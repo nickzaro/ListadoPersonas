@@ -11,11 +11,11 @@ export class DataService {
   urlBase = 'http://localhost:8080/api/personas/';
 
   cargarPersonas() {
-    return this.httpClient.get(this.urlBase);
+    return this.httpClient.get<Persona[]>(this.urlBase);
   }
 
   agregarPersona(persona: Persona){
-    return this.httpClient.post(this.urlBase,persona);
+    return this.httpClient.post<Persona>(this.urlBase,persona);
   }
 
   modificarPersona(idPersona: number, persona:Persona){
