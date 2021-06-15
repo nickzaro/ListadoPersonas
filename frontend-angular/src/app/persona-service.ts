@@ -14,6 +14,9 @@ export class PersonaService {
     this.personas = personas;
   }
 
+  obtenerPersonas(){
+    return this.dataService.cargarPersonas();
+  }
   agregarPersona(persona: Persona){
     console.log("persona a agregar: "+persona.nombre);
     

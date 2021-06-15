@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {PersonaService} from "./persona-service";
 import {DataService} from "./data-service";
 import { PersonasComponent } from './personas/personas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PersonasComponent } from './personas/personas.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [PersonaService, DataService],
   bootstrap: [AppComponent]
