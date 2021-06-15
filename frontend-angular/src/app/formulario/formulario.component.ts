@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../persona-service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Persona } from '../persona.model';
 
 @Component({
   selector: 'app-formulario',
@@ -10,8 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FormularioComponent implements OnInit {
 
-  idPersona: number = 0;
-  nombreInput: string = "";
+  idPersona!: number;
+  nombreInput!: string;
 
   constructor(private personaService: PersonaService,
               private router: Router,
@@ -19,7 +20,13 @@ export class FormularioComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    
+
+  }
+
+  onGuardarPersona(){
+    const personaAGuardar = new Persona(this.idPersona,this.nombreInput);
+    this.personaService.agregarPersona(personaAGuardar);
+    this.router.navigate(['personas']);
   }
 
 }
