@@ -14,9 +14,12 @@ export class PersonaService {
     this.personas = personas;
   }
 
+  obtenerPersonas(){
+    return this.dataService.cargarPersonas();
+  }
   agregarPersona(persona: Persona){
     console.log("persona a agregar: "+persona.nombre);
-    // @ts-ignore
+    
     this.dataService.agregarPersona(persona)
       .subscribe(
         (persona:Persona) =>{
@@ -38,6 +41,10 @@ export class PersonaService {
   modificarPersona(id: number,persona: Persona){
     console.log("persona a modificar: "+ persona.idPersona);
     this.dataService.modificarPersona(id,persona);
+    const personaMod:Persona = this.encontrarPersona(id);
+    personaMod.nombre = persona.nombre; // modifico el nombre en la vista
+
+
   }
 
   eliminarPersona(id:number){

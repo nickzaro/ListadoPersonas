@@ -24,7 +24,7 @@ public class PersonaServiceImpl implements PersonaService {
     @Override
     public Persona findById(Long id) throws PersonaNotFoundException {
         Optional<Persona> personaOptional = personaRepository.findById(id);
-        if(personaOptional.isEmpty())
+        if(!personaOptional.isPresent())
             throw new PersonaNotFoundException("No existe la persona con id: " + id);
         return personaOptional.get();
     }

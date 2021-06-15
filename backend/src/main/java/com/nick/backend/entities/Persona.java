@@ -12,16 +12,16 @@ public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPersona;
 
     private String nombre;
 
-    public Long getId() {
-        return id;
+    public Long getIdPersona() {
+        return idPersona;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPersona(Long idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getNombre() {
@@ -37,19 +37,11 @@ public class Persona implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Persona persona = (Persona) o;
-        return Objects.equals(id, persona.id) && Objects.equals(nombre, persona.nombre);
+        return Objects.equals(idPersona, persona.idPersona) && Objects.equals(nombre, persona.nombre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre);
-    }
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return Objects.hash(idPersona, nombre);
     }
 }
